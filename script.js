@@ -9,6 +9,7 @@ document.getElementById("advice-random-dice-button").onclick = async () => {
 };
 
 async function getRandomAdvice() {
+  setLoading();
   const response = await fetch("https://ill-gray-centipede-wear.cyclic.app/advices");
   const advice = await response.json();
   const adviceId = advice.id;
@@ -20,6 +21,16 @@ async function getRandomAdvice() {
   return advice;
 }
 getRandomAdvice.lastId = undefined;
+
+function setLoading() {
+  const adviceNumberElement = document.getElementById("advice-number");
+  const adviceTextElement = document.getElementById("advice-text");
+  const adviceDelimiterElement = document.getElementById("advice-delimiter");
+
+  adviceNumberElement.innerHTML = "";
+  adviceTextElement.innerHTML = `<div class="loader"></div>`;
+  adviceDelimiterElement.innerHTML = "";
+}
 
 function setAdvice(number, text) {
   const adviceNumberElement = document.getElementById("advice-number");
