@@ -7,6 +7,7 @@ document.getElementById("advice-random-dice-button").onclick = async () => {
 };
 
 async function displayNewAdvice() {
+  if (getRandomAdvice.running) return;
   const advice = await getRandomAdvice();
   setAdvice(advice.id, advice.text);
 }
@@ -23,9 +24,12 @@ async function getRandomAdvice() {
   getRandomAdvice.lastId = adviceId;
   return advice;
 }
+getRandomAdvice.running = false;
 getRandomAdvice.lastId = undefined;
 
 function setLoading() {
+  getRandomAdvice.running = true;
+
   const adviceNumberElement = document.getElementById("advice-number");
   const adviceTextElement = document.getElementById("advice-text");
   const adviceDelimiterElement = document.getElementById("advice-delimiter");
@@ -36,6 +40,8 @@ function setLoading() {
 }
 
 function setAdvice(number, text) {
+  getRandomAdvice.running = false;
+
   const adviceNumberElement = document.getElementById("advice-number");
   const adviceTextElement = document.getElementById("advice-text");
   const adviceDelimiterElement = document.getElementById("advice-delimiter");
