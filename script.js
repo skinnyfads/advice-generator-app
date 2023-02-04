@@ -1,12 +1,15 @@
 window.onload = async () => {
-  const advice = await getRandomAdvice();
-  setAdvice(advice.id, advice.text);
+  await displayNewAdvice();
 };
 
 document.getElementById("advice-random-dice-button").onclick = async () => {
+  await displayNewAdvice();
+};
+
+async function displayNewAdvice() {
   const advice = await getRandomAdvice();
   setAdvice(advice.id, advice.text);
-};
+}
 
 async function getRandomAdvice() {
   setLoading();
