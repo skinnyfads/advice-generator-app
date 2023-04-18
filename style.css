@@ -165,3 +165,17 @@ main {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
 }
+
+textarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 15px 25px;
+  border-radius: 5px;
+  resize: none;
+  color: white;
+  font: inherit;
+  text-align: center;
+  border: 2px solid transparent;
+}
