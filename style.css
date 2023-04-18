@@ -104,7 +104,7 @@ main {
   fill: var(--light-primary);
 }
 
-.advice-random-dice button {
+.advice-button button {
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
@@ -117,11 +117,11 @@ main {
   cursor: pointer;
 }
 
-.advice-random-dice button svg {
+.advice-button button svg {
   fill: var(--dark-primary);
 }
 
-.advice-random-dice:hover button svg {
+.advice-button:hover button svg {
   transform: rotate(90deg);
 }
 
